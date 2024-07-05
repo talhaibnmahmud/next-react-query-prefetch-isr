@@ -6,7 +6,17 @@ import Image from "next/image";
 import { pokemonOptions } from "@/queries/pokemon";
 
 export function PokemonInfo() {
-    const { data } = useSuspenseQuery(pokemonOptions);
+    const { data, isLoading, isError, isFetching, isPending, isRefetching } =
+        useSuspenseQuery(pokemonOptions);
+
+    console.log({
+        data,
+        isLoading,
+        isError,
+        isFetching,
+        isPending,
+        isRefetching,
+    });
 
     return (
         <div>
