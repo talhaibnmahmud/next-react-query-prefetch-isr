@@ -9,14 +9,25 @@ export function PokemonInfo() {
     const { data, isLoading, isError, isFetching, isPending, isRefetching } =
         useSuspenseQuery(pokemonOptions);
 
-    console.log({
-        data,
-        isLoading,
-        isError,
-        isFetching,
-        isPending,
-        isRefetching,
-    });
+    if (isLoading) {
+        return <h2>Loading...</h2>;
+    }
+
+    if (isError) {
+        return <h2>There was an error</h2>;
+    }
+
+    if (isFetching) {
+        return <h2>Fetching...</h2>;
+    }
+
+    if (isPending) {
+        return <h2>Pending...</h2>;
+    }
+
+    if (isRefetching) {
+        return <h2>Refetching...</h2>;
+    }
 
     return (
         <div>
