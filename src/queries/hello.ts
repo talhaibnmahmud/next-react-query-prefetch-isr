@@ -7,7 +7,9 @@ export const helloOptions = queryOptions({
     queryFn: async () => {
         await wait(1000); // Simulate a slow network request
 
-        const response = await fetch("http://localhost:3000/api/hello");
+        const response = await fetch("http://localhost:3000/api/hello", {
+            next: { revalidate: 30, tags: ["hello"] },
+        });
         return response.json();
     },
 });
