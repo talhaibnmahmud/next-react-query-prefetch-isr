@@ -2,12 +2,12 @@ import { queryOptions } from "@tanstack/react-query";
 
 import { wait } from "@/utils/wait";
 
-export const pokemonOptions = queryOptions({
-    queryKey: ["pokemon"],
+export const helloOptions = queryOptions({
+    queryKey: ["hello"],
     queryFn: async () => {
         await wait(1000); // Simulate a slow network request
 
-        const response = await fetch("https://pokeapi.co/api/v2/pokemon/25");
+        const response = await fetch("http://localhost:3000/api/hello");
         return response.json();
     },
 });

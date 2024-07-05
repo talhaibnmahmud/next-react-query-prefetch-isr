@@ -1,5 +1,6 @@
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 
+import { Hello } from "@/components/hello";
 import { PokemonInfo } from "@/components/pokemon-info";
 import { TimeInfo } from "@/components/time-info";
 import { getQueryClient } from "@/lib/get-query-client";
@@ -14,6 +15,7 @@ export default function Home() {
             <HydrationBoundary state={dehydrate(queryClient)}>
                 <PokemonInfo />
                 <TimeInfo />
+                <Hello />
             </HydrationBoundary>
         </main>
     );
